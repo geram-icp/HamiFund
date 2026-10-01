@@ -1,4 +1,5 @@
 import TestVectors "./TestVectors";
+import ProjectionTests "./ProjectionTests";
 
 module {
   public type TestSummary = {
@@ -12,7 +13,10 @@ module {
       TestVectors.balancedEvent(),
       TestVectors.unbalancedEvent(),
       TestVectors.emptyEvent(),
-      TestVectors.multiCurrencyEvent()
+      TestVectors.multiCurrencyEvent(),
+      ProjectionTests.postedEntriesCount(),
+      ProjectionTests.pendingIgnored(),
+      ProjectionTests.voidedIgnored()
     ];
 
     var passed : Nat = 0;
