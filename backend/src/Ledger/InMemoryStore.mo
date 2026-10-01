@@ -39,6 +39,18 @@ module {
     ) != null;
   };
 
+  public func containsEntry(
+    store : Store,
+    entry_id : Types.EntryId
+  ) : Bool {
+    Array.find<Types.LedgerEntry>(
+      store.entries,
+      func(entry) {
+        entry.entry_id == entry_id
+      }
+    ) != null;
+  };
+
   public func append(
     store : Store,
     event : Types.FinancialEvent,
@@ -51,6 +63,12 @@ module {
 
     if (containsEvent(store, event.event_id)) {
       return #err(#DuplicateEvent);
+    };
+
+    for (entry in entries.vals()) {
+      if (containsEntry(store, entry.entry_id)) {
+        return #err(#DuplicateEntry);
+      };
     };
 
     switch (Posting.validateEvent(event, entries)) {

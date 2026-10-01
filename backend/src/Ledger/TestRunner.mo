@@ -3,6 +3,7 @@ import ProjectionTests "./ProjectionTests";
 import FinancialStateTests "../Query/FinancialStateTests";
 import SemanticsTests "../Accounting/SemanticsTests";
 import AccountAccountingTests "../Account/AccountingTests";
+import StoreTests "./StoreTests";
 
 module {
   public type TestSummary = {
@@ -38,7 +39,8 @@ module {
       AccountAccountingTests.treasuryMapping(),
       AccountAccountingTests.settlementMapping(),
       AccountAccountingTests.systemMapping(),
-      AccountAccountingTests.classesRemainIndependent()
+      AccountAccountingTests.classesRemainIndependent(),
+      StoreTests.duplicateEntryRejected()
     ];
 
     var passed : Nat = 0;
