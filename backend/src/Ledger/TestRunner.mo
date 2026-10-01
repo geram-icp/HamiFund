@@ -1,5 +1,6 @@
 import TestVectors "./TestVectors";
 import ProjectionTests "./ProjectionTests";
+import FinancialStateTests "../Query/FinancialStateTests";
 
 module {
   public type TestSummary = {
@@ -16,7 +17,8 @@ module {
       TestVectors.multiCurrencyEvent(),
       ProjectionTests.postedEntriesCount(),
       ProjectionTests.pendingIgnored(),
-      ProjectionTests.voidedIgnored()
+      ProjectionTests.voidedIgnored(),
+      FinancialStateTests.accountStateFromProjection()
     ];
 
     var passed : Nat = 0;
