@@ -2,6 +2,7 @@ import TestVectors "./TestVectors";
 import ProjectionTests "./ProjectionTests";
 import FinancialStateTests "../Query/FinancialStateTests";
 import SemanticsTests "../Accounting/SemanticsTests";
+import AccountAccountingTests "../Account/AccountingTests";
 
 module {
   public type TestSummary = {
@@ -31,7 +32,13 @@ module {
       SemanticsTests.assetSignedBalance(),
       SemanticsTests.liabilitySignedBalance(),
       SemanticsTests.revenueSignedBalance(),
-      SemanticsTests.expenseSignedBalance()
+      SemanticsTests.expenseSignedBalance(),
+
+      AccountAccountingTests.personalMapping(),
+      AccountAccountingTests.treasuryMapping(),
+      AccountAccountingTests.settlementMapping(),
+      AccountAccountingTests.systemMapping(),
+      AccountAccountingTests.classesRemainIndependent()
     ];
 
     var passed : Nat = 0;
