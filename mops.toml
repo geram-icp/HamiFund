@@ -2,6 +2,8 @@
 name = "hamifund"
 version = "0.1.0"
 description = "HamiFund financial infrastructure"
-repository = "https://github.com/dfinity/mops"
+
+[canisters.hamifund_backend]
+main = "backend/src/main.mo"
 
 [dependencies]

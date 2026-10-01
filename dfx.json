@@ -5,11 +5,6 @@
       "main": "backend/src/main.mo"
     }
   },
-  "defaults": {
-    "build": {
-      "packtool": "mops"
-    }
-  },
   "networks": {
     "local": {
       "bind": "127.0.0.1:4943"
