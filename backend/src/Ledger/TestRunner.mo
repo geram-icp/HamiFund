@@ -1,6 +1,7 @@
 import TestVectors "./TestVectors";
 import ProjectionTests "./ProjectionTests";
 import FinancialStateTests "../Query/FinancialStateTests";
+import SemanticsTests "../Accounting/SemanticsTests";
 
 module {
   public type TestSummary = {
@@ -15,10 +16,22 @@ module {
       TestVectors.unbalancedEvent(),
       TestVectors.emptyEvent(),
       TestVectors.multiCurrencyEvent(),
+
       ProjectionTests.postedEntriesCount(),
       ProjectionTests.pendingIgnored(),
       ProjectionTests.voidedIgnored(),
-      FinancialStateTests.accountStateFromProjection()
+
+      FinancialStateTests.accountStateFromProjection(),
+
+      SemanticsTests.assetNormalBalance(),
+      SemanticsTests.liabilityNormalBalance(),
+      SemanticsTests.revenueNormalBalance(),
+      SemanticsTests.expenseNormalBalance(),
+
+      SemanticsTests.assetSignedBalance(),
+      SemanticsTests.liabilitySignedBalance(),
+      SemanticsTests.revenueSignedBalance(),
+      SemanticsTests.expenseSignedBalance()
     ];
 
     var passed : Nat = 0;
