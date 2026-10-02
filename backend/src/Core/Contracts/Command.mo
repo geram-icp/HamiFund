@@ -4,7 +4,7 @@ module {
     command_type : Text;
     correlation_id : Text;
     idempotency_key : Text;
-    actor : Text;
+    actor_id : Text;
     timestamp : Int;
   };
 }

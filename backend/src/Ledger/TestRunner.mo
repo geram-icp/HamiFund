@@ -5,6 +5,7 @@ import SemanticsTests "../Accounting/SemanticsTests";
 import AccountAccountingTests "../Account/AccountingTests";
 import StoreTests "./StoreTests";
 import PostingBoundaryTests "../Accounting/PostingBoundaryTests";
+import PostingCommandTests "../Accounting/PostingCommandTests";
 
 module {
   public type TestSummary = {
@@ -47,7 +48,12 @@ module {
       PostingBoundaryTests.unbalancedPostingRejected(),
       PostingBoundaryTests.mixedCurrencyRejected(),
       PostingBoundaryTests.emptyLinesRejected(),
-      PostingBoundaryTests.invalidAmountRejected()
+      PostingBoundaryTests.invalidAmountRejected(),
+
+      PostingCommandTests.validCommandAccepted(),
+      PostingCommandTests.invalidCommandTypeRejected(),
+      PostingCommandTests.emptyActorRejected(),
+      PostingCommandTests.invalidPostingRejected()
     ];
 
     var passed : Nat = 0;
