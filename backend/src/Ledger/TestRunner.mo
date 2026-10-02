@@ -4,6 +4,7 @@ import FinancialStateTests "../Query/FinancialStateTests";
 import SemanticsTests "../Accounting/SemanticsTests";
 import AccountAccountingTests "../Account/AccountingTests";
 import StoreTests "./StoreTests";
+import PostingBoundaryTests "../Accounting/PostingBoundaryTests";
 
 module {
   public type TestSummary = {
@@ -40,7 +41,13 @@ module {
       AccountAccountingTests.settlementMapping(),
       AccountAccountingTests.systemMapping(),
       AccountAccountingTests.classesRemainIndependent(),
-      StoreTests.duplicateEntryRejected()
+      StoreTests.duplicateEntryRejected(),
+
+      PostingBoundaryTests.balancedPosting(),
+      PostingBoundaryTests.unbalancedPostingRejected(),
+      PostingBoundaryTests.mixedCurrencyRejected(),
+      PostingBoundaryTests.emptyLinesRejected(),
+      PostingBoundaryTests.invalidAmountRejected()
     ];
 
     var passed : Nat = 0;
